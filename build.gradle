@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'com.liulei'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/io.netty/netty-all
+    compile group: 'io.netty', name: 'netty-all', version: '4.1.36.Final'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
