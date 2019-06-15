@@ -9,16 +9,8 @@ import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
-public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
-    /**
-     * This method will be called once the {@link Channel} was registered. After the method returns this instance
-     * will be removed from the {@link ChannelPipeline} of the {@link Channel}.
-     *
-     * @param ch the {@link Channel} which was registered.
-     * @throws Exception is thrown if an error occurs. In that case it will be handled by
-     *                   {@link #exceptionCaught(ChannelHandlerContext, Throwable)} which will by default close
-     *                   the {@link Channel}.
-     */
+public class MyClientInitializer  extends ChannelInitializer<SocketChannel> {
+
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline channelPipeline = ch.pipeline();
@@ -26,6 +18,6 @@ public class MyServerInitializer extends ChannelInitializer<SocketChannel> {
         channelPipeline.addLast(new LengthFieldPrepender(4));
         channelPipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
         channelPipeline.addLast(new StringEncoder(CharsetUtil.UTF_8));
-        channelPipeline.addLast(new MyServerHandler());
+        channelPipeline.addLast(new MyClientHandler());
     }
 }
