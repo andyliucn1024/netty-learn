@@ -7,6 +7,19 @@ import java.time.LocalDateTime;
 
 public class MyClientHandler extends SimpleChannelInboundHandler<String> {
     /**
+     * Calls {@link ChannelHandlerContext#fireChannelActive()} to forward
+     * to the next {@link ChannelInboundHandler} in the {@link ChannelPipeline}.
+     * <p>
+     * Sub-classes may override this method to change behavior.
+     *
+     * @param ctx
+     */
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ctx.writeAndFlush("来自客户端的问候");
+    }
+
+    /**
      * <strong>Please keep in mind that this method will be renamed to
      * {@code messageReceived(ChannelHandlerContext, I)} in 5.0.</strong>
      * <p>
