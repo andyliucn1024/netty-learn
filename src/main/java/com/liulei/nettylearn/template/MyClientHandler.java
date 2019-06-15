@@ -35,6 +35,6 @@ public class MyClientHandler extends SimpleChannelInboundHandler<String> {
         System.out.println(ctx.channel().remoteAddress()+msg);
 
         ctx.writeAndFlush("time:::"+ LocalDateTime.now());
-        ctx.close();
+//        ctx.close();
     }
 }
