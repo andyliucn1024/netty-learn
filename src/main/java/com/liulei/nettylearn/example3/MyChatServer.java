@@ -13,7 +13,7 @@ public class MyChatServer {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyServerInitializer());
+        serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyChatServerInitializer());
         try {
             ChannelFuture channelFuture = serverBootstrap.bind(8848).sync();
             channelFuture.channel().closeFuture().sync();
