@@ -23,5 +23,6 @@ public class MyChatServerInitializer extends ChannelInitializer {
         ChannelPipeline channelPipeline = ch.pipeline();
         channelPipeline.addLast(new DelimiterBasedFrameDecoder(4096, Delimiters.lineDelimiter()));
         channelPipeline.addLast(new StringDecoder(CharsetUtil.UTF_8));
+        channelPipeline.addLast(new MyChatServerHandler());
     }
 }
