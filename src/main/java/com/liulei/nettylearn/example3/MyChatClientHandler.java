@@ -6,18 +6,6 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.time.LocalDateTime;
 
 public class MyChatClientHandler extends SimpleChannelInboundHandler<String> {
-    /**
-     * Calls {@link ChannelHandlerContext#fireChannelActive()} to forward
-     * to the next {@link ChannelInboundHandler} in the {@link ChannelPipeline}.
-     * <p>
-     * Sub-classes may override this method to change behavior.
-     *
-     * @param ctx
-     */
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush("来自客户端的问候");
-    }
 
     /**
      * <strong>Please keep in mind that this method will be renamed to
@@ -34,7 +22,5 @@ public class MyChatClientHandler extends SimpleChannelInboundHandler<String> {
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         System.out.println(ctx.channel().remoteAddress()+msg);
 
-        ctx.writeAndFlush("time:::"+ LocalDateTime.now());
-//        ctx.close();
     }
 }
