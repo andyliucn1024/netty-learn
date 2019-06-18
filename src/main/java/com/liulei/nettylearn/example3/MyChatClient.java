@@ -16,7 +16,7 @@ public class MyChatClient {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class).handler(new MyChatClientInitializer());
         try {
-            Channel channel = bootstrap.connect("localhost", 8899).sync().channel();
+            Channel channel = bootstrap.connect("localhost", 8818).sync().channel();
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             for(;;)
                 channel.writeAndFlush(br.readLine()+"\r\n");
