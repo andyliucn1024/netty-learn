@@ -15,7 +15,7 @@ public class MyChatServer {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(new MyChatServerInitializer());
         try {
-            ChannelFuture channelFuture = serverBootstrap.bind(8848).sync();
+            ChannelFuture channelFuture = serverBootstrap.bind(8818).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
             bossGroup.shutdownGracefully();

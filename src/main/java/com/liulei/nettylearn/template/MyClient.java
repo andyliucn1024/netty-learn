@@ -12,7 +12,7 @@ public class MyClient {
         Bootstrap bootstrap = new Bootstrap();
         bootstrap.group(eventLoopGroup).channel(NioSocketChannel.class).handler(new MyClientInitializer());
         try {
-            ChannelFuture channelFuture = bootstrap.connect("localhost", 8848).sync();
+            ChannelFuture channelFuture = bootstrap.connect("localhost", 8818).sync();
             channelFuture.channel().closeFuture().sync();
         } finally {
 
